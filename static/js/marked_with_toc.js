@@ -1,3 +1,7 @@
+window.onload = function (params) {
+    document.body.style.maxWidth = document.documentElement.clientWidth + "px";
+    document.body.style.width = document.documentElement.clientWidth - 50 + "px";
+};
 function markedWithToc(content) {
     var catalogOl = document.createElement("ol");
     catalogOl.style.position = "fixed";
@@ -5,10 +9,19 @@ function markedWithToc(content) {
     catalogOl.style.top = "0px";
     catalogOl.style.lineHeight = "30px";
     catalogOl.style.fontSize = "24px";
+    catalogOl.style.border = "3px solid";
+    catalogOl.style.padding = "8px";
+    catalogOl.style.width = "3%";
+    catalogOl.style.height = document.documentElement.clientHeight - 60 + "px";
+    catalogOl.style.overflowY = "auto";
     document.body.appendChild(catalogOl);
     var contentDiv = document.createElement("div");
-    contentDiv.style.marginLeft = "120px";
     contentDiv.innerHTML = marked(content);
+    contentDiv.style.cssFloat = "right";
+    contentDiv.style.marginRight = "6%";
+    contentDiv.style.width = "87%";
+    contentDiv.style.height = document.documentElement.clientHeight - 60 + "px";
+    contentDiv.style.overflowY = "auto";
     document.body.appendChild(contentDiv);
     
     var item = contentDiv.firstElementChild;
@@ -52,4 +65,23 @@ function markedWithToc(content) {
             item.innerHTML = '<a name = "' + id + '"></a>' + id + ' ' + item.textContent;
         }
     };
+    
+    catalogOl.onmouseover = function () { fold(20, 1); }
+    catalogOl.onmouseout = function () { fold(3, -1); }
+    
+    var timer = null;
+    function fold(target, speed) {
+        clearInterval(timer);
+        var width = parseInt(catalogOl.style.width.slice(0, -1));
+        timer = setInterval(function (){
+            if (width == target) {
+                clearInterval(timer);
+            }
+            else {
+                width += speed;         
+                catalogOl.style.width = width + "%";
+                contentDiv.style.width = 90 - width + "%";
+            }
+        }, 10);
+    }
 };
