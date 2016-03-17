@@ -1,9 +1,8 @@
-var dropbox = document.getElementById('dropbox');
-
 function sendFile(files) {
     if (!files || files.length < 1) {
         return;
     }
+    var dropbox = document.getElementById('dropbox');
       
     var percent = document.createElement('div' );
     dropbox.appendChild(percent);

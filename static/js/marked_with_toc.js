@@ -1,9 +1,39 @@
-window.onload = function (params) {
+function setCatalogFold() {
+    var catalogOl = document.getElementById("catalog");
+    var contentDiv = document.getElementById("markdownContent");
+    if (!catalogOl || !contentDiv) return false;
+    
+    catalogOl.onmouseover = function () { fold(20, 1); }
+    catalogOl.onmouseout = function () { fold(3, -1); }
+    
+    var timer = null;
+    function fold(target, speed) {
+        clearInterval(timer);
+        var width = parseInt(catalogOl.style.width.slice(0, -1));
+        timer = setInterval(function (){
+            if (width == target) {
+                clearInterval(timer);
+            }
+            else {
+                width += speed;         
+                catalogOl.style.width = width + "%";
+                contentDiv.style.width = 90 - width + "%";
+            }
+        }, 10);
+    }
+}
+var oldOnload = window.onload;
+window.onload = function () {
+    if (oldOnload) oldOnload();
+    
     document.body.style.maxWidth = document.documentElement.clientWidth + "px";
     document.body.style.width = document.documentElement.clientWidth - 50 + "px";
+    
+    setCatalogFold();
 };
 function markedWithToc(content) {
     var catalogOl = document.createElement("ol");
+    catalogOl.id = "catalog";
     catalogOl.style.position = "fixed";
     catalogOl.style.left = "0px";
     catalogOl.style.top = "0px";
@@ -16,6 +46,7 @@ function markedWithToc(content) {
     catalogOl.style.overflowY = "auto";
     document.body.appendChild(catalogOl);
     var contentDiv = document.createElement("div");
+    contentDiv.id = "markdownContent";
     contentDiv.innerHTML = marked(content);
     contentDiv.style.cssFloat = "right";
     contentDiv.style.marginRight = "6%";
@@ -65,23 +96,5 @@ function markedWithToc(content) {
             item.innerHTML = '<a name = "' + id + '"></a>' + id + ' ' + item.textContent;
         }
     };
-    
-    catalogOl.onmouseover = function () { fold(20, 1); }
-    catalogOl.onmouseout = function () { fold(3, -1); }
-    
-    var timer = null;
-    function fold(target, speed) {
-        clearInterval(timer);
-        var width = parseInt(catalogOl.style.width.slice(0, -1));
-        timer = setInterval(function (){
-            if (width == target) {
-                clearInterval(timer);
-            }
-            else {
-                width += speed;         
-                catalogOl.style.width = width + "%";
-                contentDiv.style.width = 90 - width + "%";
-            }
-        }, 10);
-    }
+    setCatalogFold();
 };
