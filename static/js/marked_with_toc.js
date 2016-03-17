@@ -10,7 +10,7 @@ function markedWithToc(content) {
     catalogOl.style.lineHeight = "30px";
     catalogOl.style.fontSize = "24px";
     catalogOl.style.border = "3px solid";
-    catalogOl.style.padding = "8px";
+    catalogOl.style.padding = "30px";
     catalogOl.style.width = "3%";
     catalogOl.style.height = document.documentElement.clientHeight - 60 + "px";
     catalogOl.style.overflowY = "auto";
