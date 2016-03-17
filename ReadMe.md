@@ -10,7 +10,7 @@
 ### Dark theme: 黑色主题预览效果
 ![Dark theme](http://zhengxiaoyao0716.github.io/MarkedWithToc/preview/dark.jpg)
 ### Light theme: 白色主题预览效果
-![Light theme](http://zhengxiaoyao0716.github.io/MarkedWithToc/preview/dark.jpg)
+![Light theme](http://zhengxiaoyao0716.github.io/MarkedWithToc/preview/light.jpg)
 ***
     虽然可以用它渲染任何遵循Markdown语法的文件
     但它更适合、或者说主要是为了渲染Http接口文档
