@@ -37,6 +37,8 @@ function markedWithToc(content) {
             item.innerHTML = '<a name = "' + id + '"></a>' + id + '. ' + item.textContent;
         }
         else if (item.tagName == 'H2') {
+            if (!secondCatalogOl) continue;
+            
             h2Count++;
             var id = h1Count + '.' + h2Count;
             
