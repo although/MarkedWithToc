@@ -7,6 +7,7 @@
 ## [试试看](http://temp.zheng0716.com/MarkedWithToc)<br />
     我提供了一份接口文档示范，[test_api.md]，你可以尝试把它拖进去看看
 ***
+    2016/3/18: 注意，第一个一级标题会被无视，因为要作为文档标题嘛
     2016/3/17: 现在你可以将渲染好的html一键保存到本地了！
 ### Dark theme: 黑色主题预览效果
 ![Dark theme](http://zhengxiaoyao0716.github.io/MarkedWithToc/preview/dark.jpg)
