@@ -4,7 +4,7 @@ function setCatalogFold() {
     if (!catalogOl || !contentDiv) return false;
     
     catalogOl.onmouseover = function () { fold(20, 1); }
-    catalogOl.onmouseout = function () { fold(3, -1); }
+    catalogOl.onmouseout = function () { fold(1, -1); }
     
     var timer = null;
     function fold(target, speed) {
@@ -27,7 +27,7 @@ window.onload = function () {
     if (oldOnload) oldOnload();
     
     document.body.style.maxWidth = document.documentElement.clientWidth + "px";
-    document.body.style.width = document.documentElement.clientWidth - 50 + "px";
+    document.body.style.width = document.documentElement.clientWidth - 60 + "px";
     document.body.style.paddingTop = "0px";
     document.body.style.marginTop = "10px";
     
@@ -43,7 +43,7 @@ function markedWithToc(content) {
     catalogOl.style.fontSize = "24px";
     catalogOl.style.border = "3px solid";
     catalogOl.style.padding = "30px";
-    catalogOl.style.width = "3%";
+    catalogOl.style.width = "1%";
     catalogOl.style.height = document.documentElement.clientHeight - 60 + "px";
     catalogOl.style.overflowY = "auto";
     document.body.appendChild(catalogOl);
@@ -52,7 +52,7 @@ function markedWithToc(content) {
     contentDiv.innerHTML = marked(content);
     contentDiv.style.cssFloat = "right";
     contentDiv.style.marginRight = "6%";
-    contentDiv.style.width = "87%";
+    contentDiv.style.width = "89%";
     contentDiv.style.height = document.documentElement.clientHeight - 60 + "px";
     contentDiv.style.overflowY = "auto";
     document.body.appendChild(contentDiv);
