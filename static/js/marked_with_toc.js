@@ -28,6 +28,8 @@ window.onload = function () {
     
     document.body.style.maxWidth = document.documentElement.clientWidth + "px";
     document.body.style.width = document.documentElement.clientWidth - 50 + "px";
+    document.body.style.paddingTop = "0px";
+    document.body.style.marginTop = "10px";
     
     setCatalogFold();
 };
